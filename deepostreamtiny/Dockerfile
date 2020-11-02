@@ -3,13 +3,11 @@
 # ------------------------------------------------------------------
 # darknet       latest (git)
 # python        3.6    (apt)
-# torch         latest (git)
 # jupyter       latest (pip)
 # onnx          latest (pip)
 # pytorch       latest (pip)
 # tensorflow    latest (pip)
 # jupyterlab    latest (pip)
-# keras         latest (pip)
 # opencv        4.4.0  (git)
 # deepstream    
 # ==================================================================
@@ -96,19 +94,6 @@ RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
         tqdm \
         && \
 
-# ==================================================================
-# torch
-# ------------------------------------------------------------------
-
-    DEBIAN_FRONTEND=noninteractive $APT_INSTALL \
-        sudo \
-        && \
-
-    $GIT_CLONE https://github.com/nagadomi/distro.git ~/torch --recursive && \
-    cd ~/torch && \
-    bash install-deps && \
-    sed -i 's/${THIS_DIR}\/install/\/usr\/local/g' ./install.sh && \
-    ./install.sh && \
 
 # ==================================================================
 # boost
@@ -183,14 +168,6 @@ RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
         jupyterlab \
         && \
 
-# ==================================================================
-# keras
-# ------------------------------------------------------------------
-
-    $PIP_INSTALL \
-        h5py \
-        keras \
-        && \
 
 
 # ==================================================================
