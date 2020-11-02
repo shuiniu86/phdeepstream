@@ -4,9 +4,7 @@
 # darknet       latest (git)
 # python        3.6    (apt)
 # torch         latest (git)
-# chainer       latest (pip)
 # jupyter       latest (pip)
-# mxnet         latest (pip)
 # onnx          latest (pip)
 # pytorch       latest (pip)
 # tensorflow    latest (pip)
@@ -120,14 +118,7 @@ RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
         libboost-all-dev \
         && \
 
-# ==================================================================
-# chainer
-# ------------------------------------------------------------------
 
-    $PIP_INSTALL \
-        cupy \
-        chainer \
-        && \
 
 # ==================================================================
 # jupyter
@@ -137,19 +128,7 @@ RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
         jupyter \
         && \
 
-# ==================================================================
-# mxnet
-# ------------------------------------------------------------------
 
-    DEBIAN_FRONTEND=noninteractive $APT_INSTALL \
-        libatlas-base-dev \
-        graphviz \
-        && \
-
-    $PIP_INSTALL \
-        mxnet-cu102 \
-        graphviz \
-        && \
 
 # ==================================================================
 # onnx
